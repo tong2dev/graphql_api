@@ -1,0 +1,18 @@
+version: '3'
+
+services:
+  api_monitor:
+    image: node:alpine
+    container_name: api_graphql 
+    working_dir: /usr/src/app/api_graphql
+    volumes:
+      - ./NODE_SERVER/api_graphql:/usr/src/app/api_graphql
+    ports:
+      - 3000:3000
+    environment:
+        - PORT=3000
+    networks:
+      - essof_ap
+    tty: true
+networks:
+  essof_ap:
